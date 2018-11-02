@@ -3,9 +3,9 @@
 #Note: The function will return the string ‘error’ if the parameter is invalid.
 
 def plusorminus(grade):
-    if int(grade) % 10 == 1 or 2 or 3:
+    if int(grade) % 10 in [1, 2, 3]:
         return " - "
-    elif int(grade) % 10 == 8 or 9 or 0:
+    elif int(grade) % 10 in [7,8,9]:
         return " + "
     else:
         return " "
@@ -15,8 +15,7 @@ def grade_percent(grade):
         print("You got an F")
         return "F"
     elif 50 <= int(grade) <= 60:
-        plusorminus(grade)
-        print("You got a D" + str(plusorminus(grade)))
+        print("You got a D" + plusorminus(grade))
         return "D" + str(plusorminus(grade))
     if 61 <= int(grade) <= 70:
         plusorminus(grade)
@@ -51,9 +50,6 @@ def doubleven(n):
 doubleven(n=input("What number would you like? "))
 grade_percent(grade=int(input("What grade did you get? ")))
 
-#Write a function largestNum(num1, num2, num3),
-# where the parameters are all integer values.
-# The function will return the largest value of the three parameters.
 
 def diceroll(num1, num2, num3):
     if int(num1) > int(num2) and int(num1) > int(num3):
@@ -65,8 +61,23 @@ def diceroll(num1, num2, num3):
     if int(num3) > int(num1) and int(num3) > int(num2):
         print(num3)
         return num3
-    elif int(num1)==int(num2)==int(num3):
+    elif int(num1) == int(num2) == int(num3):
+        print(num1)
+        return num1
+    if int(num1) == int(num2) and int(num1) > int(num3):
+        print(num1)
+        return num1
+    elif int(num3) == int(num2) and int(num3) > int(num1):
+        print(num3)
+        return num3
+    if int(num1) == int(num3) and int(num1) > int(num2):
         print(num1)
         return num1
 
 diceroll(num1=input("What number do you want? "), num2=input("What number do you want? "), num3=input("What number do you want? "))
+
+#Write a function sumDice(Dice, numRolls),
+# where Dice simulate a dice of Dice sides and numRolls represent the number of times the dice is rolled.
+# The function will return the sum of rolling the dice numRolls times..
+#sumDice(4, 3) returns 6
+# (although, the answer may vary as a four sided dice is rolled three times and the sum is returned.).
