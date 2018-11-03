@@ -1,14 +1,14 @@
-#2. Write a function grade(percent), where percent is a number given as a percentage.
-#The function will return a string that represents the letter grade for the percentage.
-#Note: The function will return the string ‘error’ if the parameter is invalid.
+import random
+
 
 def plusorminus(grade):
     if int(grade) % 10 in [1, 2, 3]:
         return " - "
-    elif int(grade) % 10 in [7,8,9]:
+    elif int(grade) % 10 in [7, 8, 9]:
         return " + "
     else:
         return " "
+
 
 def grade_percent(grade):
     if 0 <= int(grade) <= 49:
@@ -29,7 +29,7 @@ def grade_percent(grade):
         plusorminus(grade)
         print("You got an A")
         return "A" + str(plusorminus(grade))
-    elif int(grade)>=91:
+    elif int(grade) >= 91:
         print("You got an A plus")
         return "A +"
 
@@ -47,11 +47,7 @@ def doubleven(n):
         return -1
 
 
-doubleven(n=input("What number would you like? "))
-grade_percent(grade=int(input("What grade did you get? ")))
-
-
-def diceroll(num1, num2, num3):
+def highestnumber(num1, num2, num3):
     if int(num1) > int(num2) and int(num1) > int(num3):
         print(num1)
         return num1
@@ -74,10 +70,20 @@ def diceroll(num1, num2, num3):
         print(num1)
         return num1
 
-diceroll(num1=input("What number do you want? "), num2=input("What number do you want? "), num3=input("What number do you want? "))
 
-#Write a function sumDice(Dice, numRolls),
-# where Dice simulate a dice of Dice sides and numRolls represent the number of times the dice is rolled.
-# The function will return the sum of rolling the dice numRolls times..
-#sumDice(4, 3) returns 6
-# (although, the answer may vary as a four sided dice is rolled three times and the sum is returned.).
+def sumdice(dice, numrolls):
+    amount = 0
+    for x in range(0, int(numrolls)):
+        amount = int(amount) + random.randint(1, dice)
+    print(amount)
+    return amount
+
+
+doubleven(n=input("What number would you like? "))
+grade_percent(grade=int(input("What grade did you get? ")))
+
+
+highestnumber(num1=input("What number do you want? "), num2=input("What number do you want? "), num3=input("What number do you want? "))
+
+
+sumdice(dice=int(input("How many sides are on the dice? ")), numrolls=int(input("How many times do you want to roll this dice? ")))
